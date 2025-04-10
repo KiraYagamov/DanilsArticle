@@ -10,6 +10,12 @@ reg_btn.onclick = () => {
             const xhr = new XMLHttpRequest();
             xhr.open("POST", "http://localhost:3000/register", true);
             xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState === XMLHttpRequest.DONE){
+                    if (xhr.status === 200) console.log("Success");
+                    else console.log(JSON.parse(xhr.responseText));
+                }
+            }
             const data = {
                 email: email_input.value,
                 password: password_input.value
