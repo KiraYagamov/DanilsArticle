@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800');
+
+* {
+    font-family: "Karla", sans-serif;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.header{
+    background-color: cadetblue;
+    text-align: center;
+    color: white;
+    padding: 10px;
+}
+
+.title {
+    font-size: xx-large;
+    margin: 0;
+    display: inline;
+}
+
+button {
+    font-size: large;
+    background-color: aliceblue;
+    border-radius: 10px;
+    border-style: solid;
+}
+
+.logout {
+    position: absolute;
+    right: 40px;
+    top: 15px;
+}
+
+.create-article {
+    position: absolute;
+    left: 40px;
+    top: 15px;
+}

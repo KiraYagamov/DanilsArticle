@@ -12,6 +12,26 @@ login_btn.onclick = () => {
             email: email_input.value,
             password: password_input.value
         };
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState === XMLHttpRequest.DONE){
+                if (xhr.status === 200){
+                    localStorage.setItem("user", JSON.stringify(data));
+                    location.href = "../html/articles.html";
+                }
+                else{
+                    const message = JSON.parse(xhr.responseText);
+                    if (message.error === "User not found") {
+                        alert("Пользователь не найден!");
+                    }
+                    else if (message.error === "Password is wrong") {
+                        alert("Неверный пароль!");
+                    }
+                    else {
+                        alert("Произошла неизвестная ошибка!");
+                    }
+                }
+            }
+        }
         xhr.send(JSON.stringify(data));
     }
     else alert("Поля не могут быть пустыми!");

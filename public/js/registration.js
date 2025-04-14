@@ -10,16 +10,27 @@ reg_btn.onclick = () => {
             const xhr = new XMLHttpRequest();
             xhr.open("POST", "http://localhost:3000/register", true);
             xhr.setRequestHeader("Content-Type", "application/json");
-            xhr.onreadystatechange = () => {
-                if (xhr.readyState === XMLHttpRequest.DONE){
-                    if (xhr.status === 200) console.log("Success");
-                    else console.log(JSON.parse(xhr.responseText));
-                }
-            }
             const data = {
                 email: email_input.value,
                 password: password_input.value
             };
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState === XMLHttpRequest.DONE){
+                    if (xhr.status === 200){
+                        localStorage.setItem("user", JSON.stringify(data));
+                        location.href = "../html/articles.html";
+                    }
+                    else{
+                        const message = JSON.parse(xhr.responseText);
+                        if (message.error === "Email already used") {
+                            alert("Почта уже используется!");
+                        }
+                        else {
+                            alert("Произошла неизвестная ошибка!");
+                        }
+                    }
+                }
+            }
             xhr.send(JSON.stringify(data));
         }
         else alert("Пароли не совпадают!");
