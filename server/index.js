@@ -9,6 +9,8 @@ app.use(express.urlencoded());
 app.use(cors({credentials: true, origin: true}));
 
 const users = [];
+const articles = [];
+let articleID = 0;
 
 app.get('/', (req, res) => {
     res.send({
@@ -49,6 +51,19 @@ app.post("/register", (req, res) => {
     }
     users.push(user);
     res.sendStatus(200);
+});
+
+app.post("/create_article", (req, res) => {
+    if (!req.body) return res.sendStatus(400);
+    const article = req.body.article;
+    article.id = articleID;
+    articles.push(article);
+
+    articleID++;
+    res.sendStatus(200);
+
+    console.log("New article created!");
+    console.log(article);
 });
 
 app.listen(port, () => {

@@ -27,6 +27,16 @@ button {
     background-color: aliceblue;
     border-radius: 10px;
     border-style: solid;
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+button:hover {
+    transform: scale(1.02);
+}
+
+button:active {
+    transform: scale(0.98);
 }
 
 .logout {
@@ -39,4 +49,20 @@ button {
     position: absolute;
     left: 40px;
     top: 15px;
+}
+
+.articles {
+    padding: 0.5%;
+}
+
+.article {
+    color: white;
+    background-color: cadetblue;
+    margin: 0.5%;
+    padding: 0.8%;
+    border-radius: 20px;
+}
+
+.article_data {
+    font-size: 20px;
 }
