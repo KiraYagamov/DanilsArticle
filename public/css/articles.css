@@ -66,3 +66,12 @@ button:active {
 .article_data {
     font-size: 20px;
 }
+
+.article_author {
+    text-align: end;
+}
+
+.remove_btn {
+    position: absolute;
+    right: 30px;
+}

@@ -1,6 +1,9 @@
 const article_name = document.getElementById("article-name");
 const article_text = document.getElementById("article-text");
 const create_article_btn = document.getElementById("create-article-btn");
+const back_btn = document.getElementById("back-btn");
+
+const user = JSON.parse(localStorage.getItem("user"));
 
 
 create_article_btn.onclick = () => {
@@ -10,7 +13,8 @@ create_article_btn.onclick = () => {
     }
     const article = {
         title: article_name.value,
-        text: article_text.value
+        text: article_text.value,
+        author: user.email
     }
     const xhr = new XMLHttpRequest();
     xhr.open("POST", "http://localhost:3000/create_article", true);
@@ -25,4 +29,8 @@ create_article_btn.onclick = () => {
         }
     }
     xhr.send(JSON.stringify(data));
+}
+
+back_btn.onclick = () => {
+    location.href = "../html/articles.html";
 }

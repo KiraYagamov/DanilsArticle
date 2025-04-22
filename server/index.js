@@ -66,6 +66,13 @@ app.post("/create_article", (req, res) => {
     console.log(article);
 });
 
+app.get("/get_articles", (req, res) => {
+    const data = {
+        articles: articles
+    }
+    res.status(200).send(JSON.stringify(data));
+});
+
 app.listen(port, () => {
     console.log(`Сервер запущен на порту ${port}`);
 });
