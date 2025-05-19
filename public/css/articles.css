@@ -75,3 +75,9 @@ button:active {
     position: absolute;
     right: 30px;
 }
+
+.current-email {
+    margin: 0;
+    margin-right: 40px;
+    text-align: end;
+}
