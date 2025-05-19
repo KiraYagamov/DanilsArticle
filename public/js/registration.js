@@ -8,7 +8,7 @@ reg_btn.onclick = () => {
         if (password_input.value === confirm_input.value) {
             // Тут будем отправлять запрос на сервер
             const xhr = new XMLHttpRequest();
-            xhr.open("POST", "http://localhost:3000/register", true);
+            xhr.open("POST", "http://192.168.31.17:3000/register", true);
             xhr.setRequestHeader("Content-Type", "application/json");
             const data = {
                 email: email_input.value,

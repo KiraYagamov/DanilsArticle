@@ -6,7 +6,7 @@ login_btn.onclick = () => {
     if (email_input.value !== "" && password_input.value !== "") {
         // Тут будем отправлять запрос на сервер
         const xhr = new XMLHttpRequest();
-        xhr.open("POST", "http://localhost:3000/login", true);
+        xhr.open("POST", "http://192.168.31.17:3000/login", true);
         xhr.setRequestHeader("Content-Type", "application/json");
         const data = {
             email: email_input.value,

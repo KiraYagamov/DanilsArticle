@@ -58,14 +58,31 @@ function addArticle(article) {
     p_author.setAttribute("class", "article_author");
     p_author.innerHTML = article.author;
 
+    const date_time = document.createElement("p");
+    date_time.setAttribute("class", "date_time");
+    date_time.innerHTML = toTime(article.time);
+
     div.append(h2);
     div.append(p);
     div.append(p_author);
+    div.append(date_time);
     articles.prepend(div);
 }
 
+function toTime(time) {
+    const date = new Date(time*1000);
+    let options = {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric'
+    }
+    return date.toLocaleString('ru-RU', options);
+}
+
 function sendRequest(type, address, data, onready){
-    xhr.open(type, "http://localhost:3000" + address, true);
+    xhr.open(type, "http://192.168.31.17:3000" + address, true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = onready;
     xhr.send(data);

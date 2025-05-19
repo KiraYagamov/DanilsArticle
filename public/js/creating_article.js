@@ -17,7 +17,7 @@ create_article_btn.onclick = () => {
         author: user.email
     }
     const xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:3000/create_article", true);
+    xhr.open("POST", "http://192.168.31.17:3000/create_article", true);
     xhr.setRequestHeader("Content-Type", "application/json");
     const data = {
         article
